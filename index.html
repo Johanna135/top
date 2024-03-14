@@ -55,6 +55,10 @@
             des Alpenvereins Innsbruck. Am Gipfel befindet sich eine Flagge aus Metall.</p>
             <a href="https://de.wikipedia.org/wiki/Gipfelst%C3%BCrmernadel">Quelle: Wikipedia</a>
 
+            <h3>Übersichtskarte</h3>
+            <div id="map" style="width:90%;height:600px"></div>
+
+
             <h3>Nützliche Links</h3>
             <ul>
                 <li><a
@@ -68,7 +72,7 @@
                 </li>
             </ul>
 
-            <div id="map"></div>
+
 
         </article>
         <footer>
@@ -82,7 +86,20 @@
 
 
 
+    <script>
+        var map = L.map('map').setView([47.32, 11.286111], 13);
 
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        var marker = L.marker([47.32, 11.286111]).addTo(map);
+        marker.bindPopup("<b>Gipfelstürmernadel!</b><br>Klettern im Karwendel").openPopup();
+
+
+
+    </script>
 </body>
 
 </html>
